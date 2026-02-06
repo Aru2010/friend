@@ -3,261 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday ❤️</title>
+  <title>Happy Birthday Aayushi ❤️</title>
 
   <style>
-    *{
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body{
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       min-height: 100vh;
-      overflow-y: auto;
-      overflow-x: hidden;
       display: flex;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding: 30px 0;
     }
 
-    .container{
-      width: 92%;
-      max-width: 720px;
-      background: rgba(255, 255, 255, 0.14);
-      padding: 35px;
-      border-radius: 25px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0px 0px 30px rgba(0,0,0,0.3);
-      animation: fadeIn 1.8s ease;
+    .container {
+      width: 90%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.3);
     }
 
-    @keyframes fadeIn{
-      from{opacity:0; transform: translateY(20px);}
-      to{opacity:1; transform: translateY(0);}
+    h1 {
+      font-size: 2.5rem;
     }
 
-    h1{
-      font-size: 2.6rem;
-      margin-bottom: 12px;
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
 
-    .sub{
-      font-size: 1.05rem;
-      opacity: 0.95;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-
-    p{
-      font-size: 1.08rem;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
-
-    .btn{
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
       background: white;
       color: #ff3b6f;
-      border: none;
-      padding: 12px 24px;
       font-size: 1rem;
-      border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
-      font-weight: 700;
-      margin-top: 10px;
+      font-weight: bold;
     }
 
-    .btn:hover{
-      transform: scale(1.07);
+    button:hover {
       background: #ffe3ea;
     }
 
-    .hidden{
+    .hidden {
       display: none;
     }
 
-    .box{
-      margin-top: 25px;
-      padding: 22px;
-      border-radius: 20px;
-      background: rgba(0,0,0,0.22);
-      animation: popUp 1s ease;
-    }
-
-    @keyframes popUp{
-      from{transform: scale(0.85); opacity: 0;}
-      to{transform: scale(1); opacity: 1;}
-    }
-
-    .final{
-      font-size: 1.25rem;
-      font-weight: bold;
+    .box {
       margin-top: 20px;
-      color: #fff8fb;
-      text-shadow: 0px 0px 12px rgba(255,255,255,0.35);
-    }
-
-    .signature{
-      margin-top: 18px;
-      font-size: 1rem;
-      font-style: italic;
-      opacity: 0.9;
-    }
-
-    .heart{
-      position: absolute;
-      top: -10px;
-      font-size: 20px;
-      animation: fall linear infinite;
-      opacity: 0.85;
-      pointer-events: none;
-    }
-
-    @keyframes fall{
-      to{
-        transform: translateY(115vh);
-      }
-    }
-
-    audio{
-      display: none;
-    }
-
-    .songline{
-      font-size: 0.95rem;
-      opacity: 0.85;
-      margin-top: 10px;
-    }
-
-    .quote{
-      font-size: 1.1rem;
-      margin-top: 15px;
-      opacity: 0.95;
-      font-style: italic;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(0,0,0,0.2);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Put Love Story mp3 in same folder and rename it song.mp3 -->
-  <audio id="bgMusic" loop>
-    <source src="Love Story.mp3" type="audio/mpeg">
-  </audio>
-
   <div class="container">
     <h1>Happy Birthday ❤️</h1>
 
-    <p class="sub">
+    <p>
       Some people become memories…  
       but some people remain a part of you.  
       And you… you’re that kind.
     </p>
 
-    <button class="btn" onclick="startSurprise()">Open your surprise 🎁</button>
+    <button onclick="showMessage()">Open your surprise 🎁</button>
 
-    <div id="surprise" class="box hidden">
+    <div id="msg" class="box hidden">
       <h2>✨ A Birthday Message ✨</h2>
-
       <p>
         I don’t know how life keeps changing things…  
-        but one thing never changed:
+        but one thing never changed:  
+        the way I still care.
       </p>
 
       <p>
-        The way I still respect you.  
-        The way I still care.
+        Happy Birthday 🎂❤️  
+        Stay happy. Stay safe. Stay you.
       </p>
 
-      <p>
-        We had our moments… good and bad…  
-        but what we had was real.
-      </p>
-
-      <p class="quote">
-        "And I’m not saying anything…  
-        I’m just saying you still matter."
-      </p>
-
-      <p class="final">
-        Happy Birthday.  
-        I hope today feels as beautiful as your smile. 🎂❤️
-      </p>
-
-      <p class="signature">
-        — from someone who will always wish the best for you.
-      </p>
-
-      <button class="btn" onclick="showFinal()">One last page 🌙</button>
-
-      <p class="songline">🎶 Now playing: Love Story — Taylor Swift</p>
+      <p><i>— from someone who will always wish the best for you.</i></p>
     </div>
-
-    <div id="finalSurprise" class="box hidden">
-      <h2>🌹 One Small Wish 🌹</h2>
-
-      <p>
-        I don’t know where we’ll end up…  
-        but I hope life keeps bringing you happiness.
-      </p>
-
-      <p>
-        And if destiny ever gives us another chance…  
-        I’d still choose you, but this time with more maturity,
-        more patience, and more understanding.
-      </p>
-
-      <p class="final">
-        Stay happy. Stay safe. Stay you. ❤️
-      </p>
-
-      <p>
-        And yes… you’ll always have a special place in my heart.
-      </p>
-    </div>
-
   </div>
 
   <script>
-    function startSurprise(){
-      document.getElementById("surprise").classList.remove("hidden");
-
-      let music = document.getElementById("bgMusic");
-      music.play().catch(err => {
-        alert("Tap once to allow music 🎶");
-      });
-
-      for(let i=0; i<35; i++){
-        createHeart();
-      }
-    }
-
-    function showFinal(){
-      document.getElementById("finalSurprise").classList.remove("hidden");
-    }
-
-    function createHeart(){
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-
-      const hearts = ["💗","💕","❤️","💖"];
-      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
-      heart.style.fontSize = (Math.random() * 20 + 14) + "px";
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
+    function showMessage() {
+      document.getElementById("msg").classList.remove("hidden");
     }
   </script>
 
