@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Aayushi❤️</title>
+  <title>Happy Birthday ❤️</title>
 
   <style>
     *{
@@ -99,4 +99,167 @@
       font-size: 1.25rem;
       font-weight: bold;
       margin-top: 20px;
-      color
+      color: #fff8fb;
+      text-shadow: 0px 0px 12px rgba(255,255,255,0.35);
+    }
+
+    .signature{
+      margin-top: 18px;
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .heart{
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    @keyframes fall{
+      to{
+        transform: translateY(115vh);
+      }
+    }
+
+    audio{
+      display: none;
+    }
+
+    .songline{
+      font-size: 0.95rem;
+      opacity: 0.85;
+      margin-top: 10px;
+    }
+
+    .quote{
+      font-size: 1.1rem;
+      margin-top: 15px;
+      opacity: 0.95;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Put Love Story mp3 in same folder and rename it song.mp3 -->
+  <audio id="bgMusic" loop>
+    <source src="Love Story.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>Happy Birthday ❤️</h1>
+
+    <p class="sub">
+      Some people become memories…  
+      but some people remain a part of you.  
+      And you… you’re that kind.
+    </p>
+
+    <button class="btn" onclick="startSurprise()">Open your surprise 🎁</button>
+
+    <div id="surprise" class="box hidden">
+      <h2>✨ A Birthday Message ✨</h2>
+
+      <p>
+        I don’t know how life keeps changing things…  
+        but one thing never changed:
+      </p>
+
+      <p>
+        The way I still respect you.  
+        The way I still care.
+      </p>
+
+      <p>
+        We had our moments… good and bad…  
+        but what we had was real.
+      </p>
+
+      <p class="quote">
+        "And I’m not saying anything…  
+        I’m just saying you still matter."
+      </p>
+
+      <p class="final">
+        Happy Birthday.  
+        I hope today feels as beautiful as your smile. 🎂❤️
+      </p>
+
+      <p class="signature">
+        — from someone who will always wish the best for you.
+      </p>
+
+      <button class="btn" onclick="showFinal()">One last page 🌙</button>
+
+      <p class="songline">🎶 Now playing: Love Story — Taylor Swift</p>
+    </div>
+
+    <div id="finalSurprise" class="box hidden">
+      <h2>🌹 One Small Wish 🌹</h2>
+
+      <p>
+        I don’t know where we’ll end up…  
+        but I hope life keeps bringing you happiness.
+      </p>
+
+      <p>
+        And if destiny ever gives us another chance…  
+        I’d still choose you, but this time with more maturity,
+        more patience, and more understanding.
+      </p>
+
+      <p class="final">
+        Stay happy. Stay safe. Stay you. ❤️
+      </p>
+
+      <p>
+        And yes… you’ll always have a special place in my heart.
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function startSurprise(){
+      document.getElementById("surprise").classList.remove("hidden");
+
+      let music = document.getElementById("bgMusic");
+      music.play().catch(err => {
+        alert("Tap once to allow music 🎶");
+      });
+
+      for(let i=0; i<35; i++){
+        createHeart();
+      }
+    }
+
+    function showFinal(){
+      document.getElementById("finalSurprise").classList.remove("hidden");
+    }
+
+    function createHeart(){
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+
+      const hearts = ["💗","💕","❤️","💖"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      heart.style.fontSize = (Math.random() * 20 + 14) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
