@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Aayushi 🎉</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body{
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      min-height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .container{
+      width: 90%;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 25px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0px 0px 25px rgba(0,0,0,0.25);
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0; transform: translateY(20px);}
+      to{opacity:1; transform: translateY(0);}
+    }
+
+    h1{
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    p{
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .btn{
+      background: white;
+      color: #0077ff;
+      border: none;
+      padding: 12px 22px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+
+    .btn:hover{
+      transform: scale(1.07);
+      background: #e6f4ff;
+    }
+
+    .hidden{
+      display: none;
+    }
+
+    .surprise-box{
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.2);
+      animation: popUp 1s ease;
+    }
+
+    @keyframes popUp{
+      from{transform: scale(0.8); opacity: 0;}
+      to{transform: scale(1); opacity: 1;}
+    }
+
+    .confetti{
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall{
+      to{
+        transform: translateY(110vh);
+      }
+    }
+
+    .final{
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #f5feff;
+      text-shadow: 0px 0px 10px rgba(255,255,255,0.4);
+    }
+
+    .signature{
+      margin-top: 15px;
+      font-size: 1rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    audio{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Put your song.mp3 in the same folder as this file -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>Happy Birthday Bestie 🎉</h1>
+
+    <p>
+      Today is not just your birthday...  
+      it’s the day a LEGEND was born 😎🔥  
+      And I’m honestly lucky I got to meet you.
+    </p>
+
+    <button class="btn" onclick="startSurprise()">Tap for your surprise 🎁</button>
+
+    <div id="surprise" class="surprise-box hidden">
+      <h2>💙 A Message For You 💙</h2>
+
+      <p>
+        I may have met you some time ago,  
+        but in that time you’ve become someone I genuinely respect and value.
+      </p>
+
+      <p>
+        You’re one of those people who makes everything lighter, funnier, and better.  
+        And honestly… not everyone deserves a friend like you.
+      </p>
+
+      <p class="final">
+        Stay the same. Stay unstoppable. 🚀
+      </p>
+
+      <p class="signature">
+        — Your friend always 🤝✨
+      </p>
+
+      <button class="btn" onclick="showFinal()">One last surprise... 👀</button>
+    </div>
+
+    <div id="finalSurprise" class="surprise-box hidden">
+      <h2>🥳 Birthday Mission 🥳</h2>
+
+      <p>
+        Your mission for this year is simple:
+      </p>
+
+      <p>
+        ✅ Stay happy  
+        ✅ Chase big goals  
+        ✅ Keep winning  
+        ✅ And never forget you’re capable of insane things 💯
+      </p>
+
+      <p class="final">
+        Happy Birthday once again 🎂💙
+      </p>
+
+      <p>
+        Cheers to more memories, laughs, and crazy moments ahead ✨
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function startSurprise(){
+      document.getElementById("surprise").classList.remove("hidden");
+
+      let music = document.getElementById("bgMusic");
+      music.play().catch(err => {
+        alert("Tap once anywhere to allow music 🎶");
+      });
+
+      for(let i=0; i<35; i++){
+        createConfetti();
+      }
+    }
+
+    function showFinal(){
+      document.getElementById("finalSurprise").classList.remove("hidden");
+    }
+
+    function createConfetti(){
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+
+      const emojis = ["🎉","✨","🎂","🔥","💙","🥳"];
+      confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      confetti.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 5000);
+    }
+  </script>
+
+</body>
+</html>
